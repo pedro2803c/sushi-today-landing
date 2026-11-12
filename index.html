@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sushi Today — Culinária Japonesa</title>
+<meta name="description" content="Combos especiais, ingredientes frescos e o melhor da gastronomia japonesa. Peça pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400..900&display=swap">
+<link rel="preload" as="image" href="assets/hero-poster.webp">
+<style>
+[hidden]{display:none!important}
+@media (max-width:960px){.st-h1{width:auto!important}}
+body{margin:0;background:#1a120c;font-family:'Archivo',system-ui,sans-serif;color:#080808;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{color:inherit}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+@keyframes st-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.st-track{display:flex;width:max-content;animation:st-marquee 28s linear infinite}
+@media (prefers-reduced-motion: reduce){.st-track{animation:none}}
+.st-link{text-decoration:none;transition:opacity .2s}
+.st-link:hover{opacity:.7}
+.st-btn{transition:transform .15s ease, background-color .2s, color .2s}
+.st-btn:hover{transform:translateY(-2px)}
+.st-btn:focus-visible,.st-link:focus-visible{outline:3px solid #FFF4DF;outline-offset:3px}
+.st-btn-dark:focus-visible{outline-color:#080808}
+.st-hero{display:flex;flex-direction:column;position:relative;min-height:680px}
+.st-hero-img{position:absolute;top:0;right:0;width:72%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 22%,#000 50%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 22%,#000 50%)}
+.st-h1{text-shadow:0 2px 28px rgba(8,8,8,.85)}
+.st-hero-copy{position:relative;z-index:1;flex:1;max-width:620px;padding:72px 0 40px 64px;display:flex;flex-direction:column;justify-content:center}
+.st-hero-feats{position:relative;z-index:1;display:flex;flex-wrap:wrap;border-top:1px solid #3a342e;margin:0 40px 0 64px}
+.st-hero-feat{display:flex;align-items:center;gap:12px;padding:22px 36px 26px 0;margin-right:36px;border-right:1px solid #3a342e}
+.st-hero-feat:last-child{border-right:none}
+@keyframes st-spin{to{transform:rotate(360deg)}}
+.st-badge{position:absolute;z-index:2;right:44px;bottom:44px;width:156px;height:156px;padding:0;border:none;border-radius:999px;background:#FFF4DF;cursor:pointer;transition:transform .2s}
+.st-badge:hover{transform:scale(1.05)}
+.st-badge:focus-visible{outline:3px solid #FFF4DF;outline-offset:4px}
+.st-badge-ring{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 50%;animation:st-spin 14s linear infinite}
+.st-badge:hover .st-badge-ring{animation-duration:5s}
+@keyframes st-nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
+.st-badge-arrow{animation:st-nudge 1.6s ease-in-out infinite}
+@keyframes st-pulse{0%{box-shadow:0 0 0 0 rgba(255,244,223,.55)}100%{box-shadow:0 0 0 22px rgba(255,244,223,0)}}
+.st-badge{animation:st-pulse 2.4s ease-out infinite}
+@media (prefers-reduced-motion: reduce){.st-badge-ring,.st-badge-arrow,.st-badge{animation:none}}
+.st-h1{font-size:118px}
+.st-combos{display:grid;grid-template-columns:minmax(0,0.78fr) minmax(0,1.22fr);gap:40px;align-items:center}
+.st-h2{font-size:84px}
+.st-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.st-contact{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.st-form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.st-form{position:relative;background:#FFF4DF;border-radius:32px;padding:36px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 80px -30px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.6)}
+.st-form-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.st-form-title{margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:30px;line-height:1;color:#080808;text-transform:uppercase}
+.st-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#080808;color:#FFF4DF;font-weight:700;font-size:13px;white-space:nowrap}
+.st-chip i{width:8px;height:8px;border-radius:50%;background:#25D366;box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:st-dot 1.8s ease-out infinite}
+@keyframes st-dot{to{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+.fl{position:relative;display:block}
+.fl svg{position:absolute;left:18px;top:21px;width:20px;height:20px;fill:none;stroke:#8a8178;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;transition:stroke .2s}
+.fl>span{position:absolute;left:50px;top:21px;font-size:16px;font-weight:600;color:#6b645c;pointer-events:none;transform-origin:0 0;transition:transform .2s ease,color .2s}
+.st-input{display:block;width:100%;height:62px;padding:22px 18px 6px 50px;border:1.5px solid #e4d8c4;border-radius:16px;background:#FFFFFF;color:#080808;font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+textarea.st-input{height:104px;padding-top:28px;resize:vertical;line-height:1.4}
+.st-input::placeholder{color:#a39a8f;font-weight:500;transition:color .2s}
+.st-input:not(:focus)::placeholder{color:transparent}
+.st-input:hover{border-color:#bfb19b}
+.st-input:focus{outline:none;border-color:#080808;box-shadow:0 0 0 4px rgba(8,8,8,.1)}
+.st-input:focus~svg{stroke:#080808}
+.st-input:focus~span,.st-input:not(:placeholder-shown)~span{transform:translateY(-12px) scale(.74);color:#080808}
+.st-input:user-invalid{border-color:#d4381f}
+.st-input:user-invalid:focus{box-shadow:0 0 0 4px rgba(212,56,31,.15)}
+.st-input:user-invalid~svg{stroke:#d4381f}
+.st-legend{margin:6px 0 10px;padding:0;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#080808}
+.st-fs{margin:0;padding:0;border:0;min-width:0}
+.st-combo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.st-opt{position:relative;cursor:pointer}
+.st-opt input{position:absolute;opacity:0;pointer-events:none}
+.st-opt div{height:100%;display:flex;flex-direction:column;gap:2px;padding:14px 40px 14px 16px;border:1.5px solid #e4d8c4;border-radius:16px;background:#FFFFFF;transition:background-color .2s,border-color .2s,color .2s,transform .15s}
+.st-opt b{font-family:'Anton',sans-serif;font-weight:400;font-size:19px;line-height:1.1;text-transform:uppercase}
+.st-opt small{font-size:13px;line-height:1.3;color:#6b645c;transition:color .2s}
+.st-opt div::after{content:'';position:absolute;top:14px;right:14px;width:18px;height:18px;border-radius:50%;border:1.5px solid #bfb19b;transition:all .2s}
+.st-opt:hover div{border-color:#bfb19b;transform:translateY(-1px)}
+.st-opt input:checked+div{background:#080808;border-color:#080808;color:#FFF4DF}
+.st-opt input:checked+div small{color:#cfc4b2}
+.st-opt input:checked+div::after{border-color:#FFF4DF;background:#FFF4DF;box-shadow:inset 0 0 0 4px #080808}
+.st-opt input:focus-visible+div{outline:3px solid #080808;outline-offset:2px}
+.st-submit{display:flex;align-items:center;justify-content:center;gap:12px;height:62px;margin-top:8px;border:none;border-radius:999px;background:#080808;color:#FFFFFF;font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;cursor:pointer;box-shadow:0 12px 24px -12px rgba(8,8,8,.6)}
+.st-submit .wa{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#25D366}
+.st-submit .arr{transition:transform .2s}
+.st-submit:hover .arr{transform:translateX(4px)}
+.st-note{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 0;font-size:13px;font-weight:600;color:#6b645c;text-align:center}
+.st-ok{display:flex;align-items:center;gap:12px;margin:0;padding:14px 18px;border-radius:16px;background:#e5f8ec;border:1.5px solid #25D366;color:#0b5a2a;font-weight:700;font-size:15px;animation:st-in .3s ease}
+.st-ok svg{flex:none}
+@keyframes st-in{from{opacity:0;transform:translateY(6px)}}
+@media (prefers-reduced-motion: reduce){.st-chip i,.st-ok{animation:none}}
+@media (max-width:520px){#contato{padding:48px 14px!important}.st-form{padding:24px 18px;border-radius:26px}.st-opt div{padding:12px 32px 12px 12px}.st-opt div::after{top:12px;right:10px}.st-opt b{font-size:17px}.st-submit{font-size:16px}}
+@keyframes st-wa-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+@keyframes st-wa-blink{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.st-wa{position:fixed;right:24px;bottom:24px;z-index:40;width:68px;height:68px;border-radius:999px;background:#25D366;display:flex;align-items:center;justify-content:center;animation:st-wa-blink 1.4s ease-in-out infinite}
+.st-wa::before,.st-wa::after{content:'';position:absolute;inset:0;border-radius:999px;background:#25D366;z-index:-1;animation:st-wa-ring 1.8s ease-out infinite}
+.st-wa::after{animation-delay:.9s}
+.st-wa:focus-visible{outline:3px solid #FFF4DF;outline-offset:4px}
+@media (prefers-reduced-motion: reduce){.st-wa,.st-wa::before,.st-wa::after{animation:none}}
+.st-banner-text{font-size:58px}
+.st-chop{display:block}
+.st-nav-links{display:flex}
+@media (max-width: 960px){
+ .st-hero{min-height:0}
+ .st-hero-img{position:relative;width:100%;height:320px;-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 30%);mask-image:linear-gradient(0deg,transparent 0,#000 30%);order:-1}
+ .st-hero-copy{max-width:none;padding:0 24px 24px;margin-top:-40px}
+ .st-hero-feats{margin:0 24px}
+ .st-hero-feat{width:100%;margin-right:0;padding:16px 0;border-right:none;border-bottom:1px solid #3a342e}
+ .st-hero-feat:last-child{border-bottom:none}
+ .st-badge{top:20px;right:20px;bottom:auto;width:112px;height:112px}
+ .st-h1{font-size:64px}
+ .st-combos{grid-template-columns:minmax(0,1fr);gap:56px}
+ .st-h2{font-size:60px}
+ .st-steps{grid-template-columns:minmax(0,1fr);gap:48px}
+ .st-banner-text{font-size:32px}
+ .st-chop{display:none}
+ .st-contact{grid-template-columns:minmax(0,1fr);gap:32px}
+ .st-form-row{grid-template-columns:minmax(0,1fr)}
+ .st-contact{align-items:start}
+ .st-wa{right:16px;bottom:16px;width:60px;height:60px}
+ .st-header{display:flex !important;flex-wrap:wrap}
+ .st-nav-links{order:3;width:100%;overflow-x:auto;padding-bottom:4px;justify-content:flex-start !important}
+}
+@media (max-width: 520px){
+ .st-h1{font-size:52px}
+ .st-h2{font-size:48px}
+}
+</style>
+</head>
+<body>
+<div style="padding: 24px 16px 40px; min-height: 100vh">
+<div id="inicio" style="max-width: 1400px; margin: 0 auto; background: #080808; border-radius: 32px; overflow: hidden; border: 2px solid #FFF4DF">
+
+<div aria-hidden="true" style="background: #FFF4DF; overflow: hidden; height: 58px; display: flex; align-items: center">
+<div class="st-track">
+<div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div><div style="display: flex; align-items: center; gap: 56px; padding-right: 56px; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; color: #080808">
+<span>CULINÁRIA JAPONESA</span>
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div>
+</div>
+</div>
+
+<header class="st-header" style="background: #080808; padding: 18px 44px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px 32px">
+<a href="#inicio" class="st-link" style="font-family: 'Anton', sans-serif; font-size: 58px; line-height: 1; color: #FFF4DF; letter-spacing: 0.005em; text-decoration: none" aria-label="Sushi Today — início">SUSHI TODAY</a>
+<nav aria-label="Principal" class="st-nav-links" style="gap: 36px; align-items: center; justify-content: center">
+<a href="#inicio" class="st-link" style="font-weight: 800; font-size: 16px; color: #FFFFFF; white-space: nowrap; padding: 12px 0">INÍCIO</a>
+<a href="#combos" class="st-link" style="font-weight: 800; font-size: 16px; color: #FFFFFF; white-space: nowrap; padding: 12px 0">CARDÁPIO</a>
+<a href="#combos" class="st-link" style="font-weight: 800; font-size: 16px; color: #FFFFFF; white-space: nowrap; padding: 12px 0">COMBOS</a>
+<a href="#experiencia" class="st-link" style="font-weight: 800; font-size: 16px; color: #FFFFFF; white-space: nowrap; padding: 12px 0">PROMOÇÕES</a>
+<a href="#contato" class="st-link" style="font-weight: 800; font-size: 16px; color: #FFFFFF; white-space: nowrap; padding: 12px 0">CONTATO</a>
+</nav>
+</header>
+
+<section aria-labelledby="hero-title" style="background: #080808; padding: 6px 24px 28px">
+<div class="st-hero" style="border-radius: 30px; overflow: hidden; background: #0c0b0a; border: 1px solid #2a2622">
+<video class="st-hero-img" src="assets/hero.mp4" poster="assets/hero-poster.webp" autoplay="" muted="" loop="" playsinline="" preload="metadata" aria-label="Vídeo: hashi levantando um uramaki de salmão e abacate sobre pedra escura, com outros sushis ao redor" style="object-position: 62% 50%"></video>
+<div class="st-hero-copy">
+<p style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; padding: 9px 18px; border: 1.5px solid #FFF4DF; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.12em; color: #FFF4DF"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#FFF4DF"></path></svg>AUTÊNTICA CULINÁRIA JAPONESA</p>
+<h1 id="hero-title" class="st-h1" style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; line-height: 1.09; letter-spacing: 0.005em; color: #FFF4DF; text-transform: uppercase; width: 664px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px">Sushi<br>de verdade,<br><span style="color: #FFFFFF">no seu tempo</span></h1>
+<p style="margin: 28px 0 0; max-width: 430px; font-size: 20px; line-height: 1.45; font-weight: 500; color: #FFFFFF">Combos especiais, ingredientes frescos e o melhor da gastronomia japonesa, com qualidade e sabor garantidos.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px">
+<button type="button" class="st-btn" data-act="openMenu" style="display: flex; align-items: center; gap: 10px; height: 58px; padding: 0 30px; border: 2px solid #FFFFFF; border-radius: 999px; background: #FFFFFF; color: #080808; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 19px; cursor: pointer">Ver Cardápio <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#080808" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button type="button" class="st-btn" data-act="orderNow" style="height: 58px; padding: 0 30px; border: 2px solid #FFFFFF; border-radius: 999px; background: transparent; color: #FFFFFF; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 19px; cursor: pointer">Fazer Pedido</button>
+</div>
+</div>
+<ul class="st-hero-feats" style="list-style: none; padding: 0">
+<li class="st-hero-feat"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c3-5 9-7 14-4l4-3v14l-4-3c-5 3-11 1-14-4z" fill="none" stroke="#FFF4DF" stroke-width="2" stroke-linejoin="round"></path></svg><span style="font-weight: 700; font-size: 16px; color: #FFF4DF">Ingredientes frescos</span></li>
+<li class="st-hero-feat"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L20 4M8 20L22 8" fill="none" stroke="#FFF4DF" stroke-width="2" stroke-linecap="round"></path></svg><span style="font-weight: 700; font-size: 16px; color: #FFF4DF">Preparo artesanal na hora</span></li>
+<li class="st-hero-feat"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="#FFF4DF" stroke-width="2"></circle><path d="M12 9v4l3 2M9 2h6" fill="none" stroke="#FFF4DF" stroke-width="2" stroke-linecap="round"></path></svg><span style="font-weight: 700; font-size: 16px; color: #FFF4DF">Entrega rápida</span></li>
+</ul>
+<button type="button" class="st-badge" data-act="orderNow" aria-label="Peça agora">
+<svg class="st-badge-ring" viewBox="0 0 160 160" aria-hidden="true"><defs><path id="st-badge-circ" d="M80 80 m-58 0 a58 58 0 1 1 116 0 a58 58 0 1 1 -116 0"></path></defs><text font-family="Archivo, sans-serif" font-weight="800" font-size="14" fill="#080808"><textPath href="#st-badge-circ" sc-camel-text-length="360" sc-camel-length-adjust="spacing">PEÇA AGORA ★ PEÇA AGORA ★ </textPath></text></svg>
+<span aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 999px; background: #080808; display: flex; align-items: center; justify-content: center"><svg class="st-badge-arrow" width="24" height="24" viewBox="0 0 24 24"><path d="M6 18L18 6M9 6h9v9" fill="none" stroke="#FFF4DF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+</button>
+</div>
+</section>
+
+<section id="combos" aria-labelledby="combos-title" style="background: #FFF4DF; padding: 40px 40px 40px 64px">
+<div class="st-combos">
+<div>
+<h2 id="combos-title" class="st-h2" style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; line-height: 1; color: #080808; text-transform: uppercase">Combos<br>especiais<br>para todas<br>as ocasiões.</h2>
+<div role="img" aria-label="Avaliação 5 de 5 estrelas" style="display: flex; gap: 8px; margin-top: 22px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1L12 17.8l-6.3 3.5 1.3-7.1L1.8 9.3l7.1-.9z" fill="#080808"></path></svg>
+</div>
+<p style="margin: 20px 0 0; max-width: 440px; font-size: 20px; line-height: 1.4; font-weight: 600; color: #080808">Sushis, sashimis e combinações exclusivas, preparados com ingredientes selecionados e todo o cuidado da culinária oriental.</p>
+<button type="button" class="st-btn st-btn-dark" data-act="openMenu" style="display: flex; align-items: center; gap: 14px; height: 56px; margin-top: 30px; padding: 0 34px 0 30px; border: none; border-radius: 999px; background: #080808; color: #FFFFFF; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 20px; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z" fill="#FFFFFF"></path></svg>Ver Combos</button>
+</div>
+<div style="position: relative">
+<img src="assets/combo.webp" loading="lazy" decoding="async" width="1200" height="670" alt="Embalagem preta Sushi Today aberta com sashimis de salmão, niguiris, uramakis, hossomakis, gengibre e wasabi" style="display: block; width: 100%; height: 560px; object-fit: cover; object-position: 72% 50%; border-radius: 30px">
+<svg role="img" aria-label="Selo Qualidade Garantida" viewBox="0 0 200 200" style="position: absolute; top: -22px; left: -64px; width: 196px; height: 196px">
+<defs>
+<path id="st-arc-top" d="M 34 100 A 66 66 0 0 1 166 100"></path>
+<path id="st-arc-bot" d="M 22 100 A 78 78 0 0 0 178 100"></path>
+</defs>
+<circle cx="100" cy="100" r="98" fill="#FFF4DF"></circle>
+<circle cx="100" cy="100" r="92" fill="#080808"></circle>
+<circle cx="100" cy="100" r="86" fill="none" stroke="#FFF4DF" stroke-width="2"></circle>
+<text font-family="Archivo, sans-serif" font-weight="800" font-size="20" letter-spacing="2.5" fill="#FFF4DF"><textPath href="#st-arc-top" startOffset="50%" text-anchor="middle">QUALIDADE</textPath></text>
+<text font-family="Archivo, sans-serif" font-weight="800" font-size="20" letter-spacing="2.5" fill="#FFF4DF"><textPath href="#st-arc-bot" startOffset="50%" text-anchor="middle">GARANTIDA</textPath></text>
+<circle cx="30" cy="100" r="3" fill="#FFF4DF"></circle>
+<circle cx="170" cy="100" r="3" fill="#FFF4DF"></circle>
+<g fill="none" stroke="#FFF4DF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M66 100c10-12 30-16 46-10 6 2 11 6 14 10-3 4-8 8-14 10-16 6-36 2-46-10z"></path>
+<path d="M126 100l14-10v20z"></path>
+<circle cx="76" cy="98" r="1.6" fill="#FFF4DF"></circle>
+<path d="M88 92l6 8-6 8M98 91l6 9-6 9M108 92l5 8-5 8"></path>
+</g>
+</svg>
+</div>
+</div>
+</section>
+
+<section id="experiencia" aria-label="Nossa proposta" style="background: #080808; padding: 34px 40px; display: flex; align-items: center; justify-content: center; gap: 56px">
+<svg class="st-chop" width="150" height="70" viewBox="0 0 150 70" aria-hidden="true" style="flex: none"><g fill="none" stroke="#FFF4DF" stroke-width="2.2" stroke-linejoin="round"><path d="M4 50 L144 14 L146 20 L6 56 Z"></path><path d="M4 62 L144 30 L146 36 L6 68 Z"></path><path d="M70 37 L82 52"></path></g></svg>
+<p class="st-banner-text" style="margin: 0; text-align: center; font-family: 'Archivo', sans-serif; font-weight: 900; line-height: 1.12; letter-spacing: -0.005em; color: #FFF4DF; text-transform: uppercase">Mais que sushi,<br>uma experiência<br>gastronômica única.</p>
+<svg class="st-chop" width="150" height="70" viewBox="0 0 150 70" aria-hidden="true" style="flex: none; transform: scaleX(-1)"><g fill="none" stroke="#FFF4DF" stroke-width="2.2" stroke-linejoin="round"><path d="M4 50 L144 14 L146 20 L6 56 Z"></path><path d="M4 62 L144 30 L146 36 L6 68 Z"></path><path d="M70 37 L82 52"></path></g></svg>
+</section>
+
+<section aria-label="Como preparamos seu pedido" style="background: #FFF4DF; padding: 32px 30px 24px">
+<div class="st-steps">
+<article>
+<div style="position: relative">
+<img src="assets/passo-1.webp" loading="lazy" decoding="async" width="1200" height="670" alt="Chef cortando filé de salmão fresco sobre tábua de madeira" style="display: block; width: 100%; height: 280px; object-fit: cover; object-position: 55% 60%; border-radius: 24px">
+<span style="position: absolute; left: 28px; bottom: -24px; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 2.5px solid #080808; border-radius: 999px; background: #FFF4DF; font-weight: 900; font-size: 19px; color: #080808">PASSO 1</span>
+</div>
+<h3 style="margin: 44px 0 0 28px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.1; color: #080808">Seleção dos Ingredientes</h3>
+<p style="margin: 10px 28px 0; font-size: 19px; line-height: 1.4; font-weight: 500; color: #080808">Escolhemos peixes frescos e ingredientes de alta qualidade.</p>
+</article>
+<article>
+<div style="position: relative">
+<img src="assets/passo-2.webp" loading="lazy" decoding="async" width="1200" height="670" alt="Mãos de sushiman com luvas pretas enrolando um sushi de salmão sobre esteira de bambu" style="display: block; width: 100%; height: 280px; object-fit: cover; object-position: 50% 55%; border-radius: 24px">
+<span style="position: absolute; left: 28px; bottom: -24px; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 2.5px solid #080808; border-radius: 999px; background: #FFF4DF; font-weight: 900; font-size: 19px; color: #080808">PASSO 2</span>
+</div>
+<h3 style="margin: 44px 0 0 28px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.1; color: #080808">Preparo Artesanal</h3>
+<p style="margin: 10px 28px 0; font-size: 19px; line-height: 1.4; font-weight: 500; color: #080808">Cada peça é feita na hora, com técnica e muito cuidado.</p>
+</article>
+<article>
+<div style="position: relative">
+<img src="assets/passo-3.webp" loading="lazy" decoding="async" width="1200" height="670" alt="Sequência de uramakis de salmão finalizados em prato escuro" style="display: block; width: 100%; height: 280px; object-fit: cover; object-position: 45% 55%; border-radius: 24px">
+<span style="position: absolute; left: 28px; bottom: -24px; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 2.5px solid #080808; border-radius: 999px; background: #FFF4DF; font-weight: 900; font-size: 19px; color: #080808">PASSO 3</span>
+</div>
+<h3 style="margin: 44px 0 0 28px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.1; color: #080808">Entrega Rápida</h3>
+<p style="margin: 10px 28px 0; font-size: 19px; line-height: 1.4; font-weight: 500; color: #080808">Seu pedido chega fresquinho, com segurança e no tempo certo.</p>
+</article>
+</div>
+</section>
+
+<section id="contato" aria-labelledby="form-title" style="background: #080808; padding: 64px 44px">
+<div class="st-contact">
+<div>
+<h2 id="form-title" class="st-h2" style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; line-height: 1; color: #FFF4DF; text-transform: uppercase">Faça seu<br>pedido agora.</h2>
+<p style="margin: 22px 0 0; max-width: 440px; font-size: 20px; line-height: 1.45; font-weight: 500; color: #FFFFFF">Preencha seus dados e escolha o combo. Seu pedido vai direto para o nosso WhatsApp, é só confirmar o envio.</p>
+<ul style="list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+<li style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; color: #FFF4DF"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7" fill="none" stroke="#FFF4DF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Ingredientes frescos todos os dias</li>
+<li style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; color: #FFF4DF"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7" fill="none" stroke="#FFF4DF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Preparo artesanal na hora</li>
+<li style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; color: #FFF4DF"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7" fill="none" stroke="#FFF4DF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Entrega rápida e segura</li>
+</ul>
+</div>
+<form id="pedido" class="st-form" novalidate>
+<div class="st-form-head"><h3 class="st-form-title">Seu pedido</h3><span class="st-chip"><i></i>Atendendo agora</span></div>
+<div class="st-form-row">
+<label class="fl"><input class="st-input" id="f-nome" name="nome" type="text" required autocomplete="name" placeholder="Como podemos te chamar?"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Nome</span></label>
+<label class="fl"><input class="st-input" id="f-telefone" name="telefone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="15" placeholder="(00) 00000-0000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span>WhatsApp</span></label>
+</div>
+<label class="fl"><input class="st-input" id="f-endereco" name="endereco" type="text" required autocomplete="street-address" placeholder="Rua, número, bairro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Endereço de entrega</span></label>
+<fieldset class="st-fs"><legend class="st-legend">Escolha o combo</legend>
+<div class="st-combo-grid">
+<label class="st-opt"><input type="radio" name="combo" value="Combo Especial" checked><div><b>Combo Especial</b><small>Sushis, sashimis e niguiris</small></div></label>
+<label class="st-opt"><input type="radio" name="combo" value="Combo Sashimi"><div><b>Combo Sashimi</b><small>Cortes frescos do dia</small></div></label>
+<label class="st-opt"><input type="radio" name="combo" value="Combo Sushi"><div><b>Combo Sushi</b><small>Uramakis e hossomakis</small></div></label>
+<label class="st-opt"><input type="radio" name="combo" value="Quero montar meu pedido"><div><b>Monte o seu</b><small>Escolha peça por peça</small></div></label>
+</div>
+</fieldset>
+<label class="fl"><textarea class="st-input" id="f-obs" name="obs" placeholder="Ex.: sem cebolinha, troco para R$ 100"></textarea><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg><span>Observações (opcional)</span></label>
+<button type="submit" class="st-btn st-btn-dark st-submit"><span class="wa"><svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.5 9 3.5 15.8c0 2.4.7 4.6 1.9 6.5L3.6 28.5l6.4-1.7c1.8 1 3.9 1.5 6 1.5 6.9 0 12.5-5.5 12.5-12.3S22.9 3.5 16 3.5z" fill="#fff"/></svg></span>Enviar pelo WhatsApp<svg class="arr" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<p class="st-note"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg>Seus dados vão só para o nosso WhatsApp.</p>
+<p id="form-ok" class="st-ok" role="status" hidden><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Abrimos o WhatsApp com seu pedido. É só tocar em enviar!</p>
+</form>
+</div>
+</section>
+
+<footer style="background: #FFF4DF; padding: 40px 32px 28px; container-type: inline-size">
+<p aria-label="Sushi Today" style="margin: 0; text-align: center; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 21.2cqw; line-height: 0.92; letter-spacing: -0.005em; color: #080808; white-space: nowrap">SUSHI TODAY</p>
+</footer>
+</div>
+</div>
+
+<a class="st-wa" href="https://wa.me/" id="wa" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.5 9 3.5 15.8c0 2.4.7 4.6 1.9 6.5L3.6 28.5l6.4-1.7c1.8 1 3.9 1.5 6 1.5 6.9 0 12.5-5.5 12.5-12.3S22.9 3.5 16 3.5z" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linejoin="round"></path><path d="M11.6 9.9c.3-.1.6 0 .8.3l1.3 2.6c.2.3.1.7-.1 1l-.9 1c.7 1.6 2 2.9 3.6 3.7l1-.9c.3-.3.7-.3 1-.1l2.5 1.3c.3.2.4.5.3.8-.4 1.4-1.6 2.2-3 2-4.3-.6-7.6-3.9-8.3-8.1-.2-1.3.5-2.5 1.8-3.1z" fill="#FFFFFF"></path></svg>
+</a>
+
+<div id="drawer" hidden style="position: fixed; inset: 0; z-index: 50; display: flex; justify-content: flex-end">
+<button type="button" data-act="close" aria-label="Fechar" style="position: absolute; inset: 0; border: none; background: rgba(8,8,8,0.6); cursor: pointer"></button>
+<aside role="dialog" aria-modal="true" aria-labelledby="drawer-title" style="position: relative; width: 100%; max-width: 440px; height: 100%; overflow-y: auto; background: #FFF4DF; border-left: 2px solid #080808; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<h2 id="drawer-title" style="margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 44px; line-height: 1; color: #080808">CARDÁPIO</h2>
+<button type="button" class="st-btn st-btn-dark" data-act="close" aria-label="Fechar cardápio" style="width: 48px; height: 48px; border: 2px solid #080808; border-radius: 999px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="#080808" stroke-width="2.6" stroke-linecap="round"></path></svg></button>
+</div>
+<div id="done" hidden style="background: #080808; color: #FFF4DF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1.05">PEDIDO ENVIADO!</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.4">Recebemos seu pedido. Em instantes você recebe a confirmação e o tempo de entrega.</p>
+</div>
+
+<div id="items" style="display: flex; flex-direction: column; gap: 14px"></div>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 14px; padding-top: 12px; border-top: 2px solid #080808">
+<p style="margin: 0; display: flex; justify-content: space-between; font-weight: 800; font-size: 18px; color: #080808"><span>Itens no pedido</span><span id="count">0</span></p>
+<button type="button" class="st-btn st-btn-dark" data-act="checkout" id="checkout" disabled style="height: 58px; border: none; border-radius: 999px; background: #080808; color: #FFFFFF; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 19px; cursor: pointer; opacity: .4">Finalizar Pedido</button>
+</div>
+</aside>
+</div>
+
+
+<script>
+// Número do WhatsApp (só dígitos, com DDI). Ex.: '5511999999999'
+const WHATSAPP='';
+const WA='https://wa.me/'+WHATSAPP.replace(/\D/g,'');
+const HELLO='Olá, Sushi Today! Quero fazer um pedido.';
+const ITEMS=[
+ {id:'especial',name:'Combo Especial',desc:'Sushis, sashimis e niguiris selecionados.',price:'[SEU PREÇO]'},
+ {id:'sashimi',name:'Combo Sashimi',desc:'Cortes frescos de salmão e peixes do dia.',price:'[SEU PREÇO]'},
+ {id:'sushi',name:'Combo Sushi',desc:'Uramakis, hossomakis e combinações exclusivas.',price:'[SEU PREÇO]'}];
+const q={especial:0,sashimi:0,sushi:0};
+const $=s=>document.querySelector(s);
+const drawer=$('#drawer'),list=$('#items'),btn=$('#checkout');
+$('#wa').href=WA+'?text='+encodeURIComponent(HELLO);
+function render(){
+ list.innerHTML=ITEMS.map(it=>`<div style="display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 2px solid #080808; border-radius: 22px; background: #FFFFFF"><div style="flex: 1; min-width: 0"><p style="margin: 0; font-family: 'Anton', sans-serif; font-size: 24px; line-height: 1.1; color: #080808">${it.name}</p><p style="margin: 4px 0 0; font-size: 15px; line-height: 1.35; color: #3a3530">${it.desc}</p><p style="margin: 6px 0 0; font-weight: 800; font-size: 16px; color: #080808">${it.price}</p></div><div style="display: flex; align-items: center; gap: 8px"><button type="button" data-dec="${it.id}" aria-label="Remover ${it.name}" style="width: 44px; height: 44px; border: 2px solid #080808; border-radius: 999px; background: #FFF4DF; font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 22px; color: #080808; cursor: pointer">−</button><span aria-live="polite" style="min-width: 22px; text-align: center; font-weight: 900; font-size: 18px; color: #080808">${q[it.id]}</span><button type="button" data-inc="${it.id}" aria-label="Adicionar ${it.name}" style="width: 44px; height: 44px; border: none; border-radius: 999px; background: #080808; font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 22px; color: #FFFFFF; cursor: pointer">+</button></div></div>`).join('');
+ const n=Object.values(q).reduce((a,b)=>a+b,0);
+ $('#count').textContent=n;btn.disabled=!n;btn.style.opacity=n?1:.4;
+}
+function open(){$('#done').hidden=true;render();drawer.hidden=false;}
+const acts={
+ openMenu:open,
+ orderNow(){if(!Object.values(q).some(Boolean))q.especial=1;open();},
+ close(){drawer.hidden=true;},
+ checkout(){for(const k in q)q[k]=0;render();$('#done').hidden=false;}
+};
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-act],[data-inc],[data-dec]');if(!a)return;
+ if(a.dataset.act)return acts[a.dataset.act]();
+ const id=a.dataset.inc||a.dataset.dec;q[id]=Math.max(0,q[id]+(a.dataset.inc?1:-1));
+ $('#done').hidden=true;render();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!drawer.hidden)acts.close();});
+$('#f-telefone').addEventListener('input',e=>{
+ const d=e.target.value.replace(/\D/g,'').slice(0,11);
+ e.target.value=d.length>10?d.replace(/(\d{2})(\d{5})(\d{0,4})/,'($1) $2-$3'):d.length>6?d.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3'):d.length>2?d.replace(/(\d{2})(\d{0,5})/,'($1) $2'):d;
+});
+$('#pedido').addEventListener('submit',e=>{
+ e.preventDefault();if(!e.target.reportValidity())return;const f=new FormData(e.target);
+ const msg=HELLO+'\n\nNome: '+f.get('nome')+'\nWhatsApp: '+f.get('telefone')+'\nEndereço: '+f.get('endereco')+'\nCombo: '+f.get('combo')+(f.get('obs')?'\nObservações: '+f.get('obs'):'');
+ window.open(WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
+ $('#form-ok').hidden=false;
+});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){const v=$('video');v&&v.pause();}
+</script>
+</body>
+</html>
